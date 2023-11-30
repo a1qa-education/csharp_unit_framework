@@ -2,7 +2,7 @@
 {
     internal class FileUploadTests : BaseTest
     {
-        private static readonly string fileName = testdata.GetValue<string>("fileDownload.folderPath");
-        private static readonly string filePath = testdata.GetValue<string>("fileDownload.fileName") + fileName;
+        private static readonly string fileName = testdata.GetValue<string>("fileUpload.fileName");
+        private static readonly string filePath = testdata.GetValue<string>("fileUpload.filePath") + fileName;
     }
 }
