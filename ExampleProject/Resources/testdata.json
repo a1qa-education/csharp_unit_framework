@@ -7,7 +7,7 @@
     "password": "admin"
   },
   "fileDownload": {
-    "folderPath": "..\\Resources\\",
-    "fileName": "Upload.txt"
+    "folderPath": "..\\\\Resources\\\\",
+    "fileName": "text.txt"
   }
 }

@@ -17,7 +17,7 @@ namespace ExampleProject.Framework.Tests
             {
                 actualSum += StringUtils.GetDoubleFromString(due);
             }
-            Assert.AreEqual(testdata.GetValue<string>("dataTables.expectedSum"), actualSum, "Sum is not correct");
+            Assert.AreEqual(testdata.GetValue<double>("dataTable.expectedSum"), actualSum, "Sum is not correct");
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using Aquality.Selenium.Core.Utilities;
+﻿using Aquality.Selenium.Browsers;
+using Aquality.Selenium.Core.Utilities;
 using System.IO;
-using System.Threading.Tasks;
 
 namespace ExampleProject.Framework.Utils
 {
@@ -10,13 +10,8 @@ namespace ExampleProject.Framework.Utils
 
         public static bool IsFileExists(string filePath)
         {
-            var task = new Task<bool>(() =>
-            {
-                var file = new FileInfo(filePath);
-                return file.Exists;
-            });
-            task.Start();
-            return task.Wait(settings.GetValue<int>("fileExistsTimeout")) && task.Result;
+            AqualityServices.ConditionalWait.WaitForTrue(() => File.Exists(filePath));
+            return File.Exists(filePath);
         }
 
         public static void DeleteFileIfExists(FileInfo fileName)
