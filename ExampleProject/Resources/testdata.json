@@ -5,7 +5,7 @@
   "basicAuth": {
     "login": "admin",
     "password": "admin"
-  }
+  },
   "fileDownload": {
     "folderPath": "..\\Resources\\",
     "fileName": "Upload.txt"

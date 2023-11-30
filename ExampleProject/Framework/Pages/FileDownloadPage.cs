@@ -6,10 +6,10 @@ namespace ExampleProject.Framework.Pages
 {
     internal class FileDownloadPage : Form
     {
-        private const string Name = "File Download";
+        private const string PageName = "File Download";
         //implement locator
         private IButton downloadLink(string filename) => ElementFactory.GetButton(By.XPath($"locator with {filename}"), "Element name");
-        public FileDownloadPage() : base(By.XPath(string.Format(LocatorConstants.PreciseTextLocator, Name)), Name)
+        public FileDownloadPage() : base(By.XPath(string.Format(LocatorConstants.PreciseTextLocator, PageName)), PageName)
         {
         }
 

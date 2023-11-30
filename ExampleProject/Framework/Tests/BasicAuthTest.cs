@@ -8,7 +8,7 @@ namespace ExampleProject.Framework.Tests
         private BasicAuthPage basicAuthPage = new();
 
         [SetUp]
-        public void SetUp()
+        public void BasicAuthorisation()
         {
             //todo: add basic auth
         }
