@@ -1,4 +1,5 @@
 ﻿using ExampleProject.Framework.Pages;
+using ExampleProject.Framework.Utils;
 using NUnit.Framework;
 
 namespace ExampleProject.Framework.Tests
@@ -12,7 +13,7 @@ namespace ExampleProject.Framework.Tests
         {
             mainPage.ClickNavigationLink("JavaScript Alerts");
             jsAlertPage.ClickJSAlertBtn();
-            browser.HandleAlert(Aquality.Selenium.Browsers.AlertAction.Accept);
+            BrowserUtils.AcceptAlert();
             Assert.IsTrue(jsAlertPage.IsSuccessMessageDisplayed(), "Success message is not displayed");
         }
     }
