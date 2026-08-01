@@ -11,7 +11,7 @@ namespace ExampleProject.Framework.Pages
         private ITextBox passwordTxt => ElementFactory.GetTextBox(By.Id("password"), "Password text box");
         private IButton loginBtn => ElementFactory.GetButton(By.XPath("//button[@type='submit']"), "Login button");
 
-        public LoginPage() : base(By.XPath("//h2[text()='Login']"), PageName)
+        public LoginPage() : base(By.Id("username"), PageName)
         {
         }
 

@@ -20,7 +20,7 @@ namespace ExampleProject.Framework.Tests
 
             secureAreaPage.ClickLogout();
 
-            Assert.That(loginPage.State.IsDisplayed, Is.True, "Login page is not opened");
+            Assert.That(loginPage.State.WaitForDisplayed(), Is.True, "Login page is not opened");
         }
     }
 }

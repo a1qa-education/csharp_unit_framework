@@ -16,7 +16,7 @@ namespace ExampleProject.Framework.Pages
 
         public bool IsSuccessMessageDisplayed()
         {
-            return successMessageLbl.State.IsDisplayed;
+            return successMessageLbl.State.WaitForDisplayed();
         }
 
         public void ClickLogout()
