@@ -1,4 +1,5 @@
-﻿using ExampleProject.Framework.Pages;
+using ExampleProject.Framework.Constants;
+using ExampleProject.Framework.Pages;
 using ExampleProject.Framework.Utils;
 using NUnit.Framework;
 
@@ -11,13 +12,13 @@ namespace ExampleProject.Framework.Tests
         [Test]
         public void DataTablesTest()
         {
-            mainPage.ClickNavigationLink("Sortable Data Tables");
+            mainPage.ClickNavigationLink(MainPageNavigation.SortableDataTables);
             var actualSum = 0.00;
             foreach (string due in dataTablesPage.GetFirstDueList())
             {
                 actualSum += StringUtils.GetDoubleFromString(due);
             }
-            Assert.AreEqual(testdata.GetValue<double>("dataTable.expectedSum"), actualSum, "Sum is not correct");
+            Assert.That(actualSum, Is.EqualTo(testdata.GetValue<double>("dataTable.expectedSum")), "Sum is not correct");
         }
     }
 }

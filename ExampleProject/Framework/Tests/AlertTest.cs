@@ -1,4 +1,5 @@
-﻿using ExampleProject.Framework.Pages;
+using ExampleProject.Framework.Constants;
+using ExampleProject.Framework.Pages;
 using ExampleProject.Framework.Utils;
 using NUnit.Framework;
 
@@ -11,10 +12,10 @@ namespace ExampleProject.Framework.Tests
         [Test]
         public void AlertsTest()
         {
-            mainPage.ClickNavigationLink("JavaScript Alerts");
+            mainPage.ClickNavigationLink(MainPageNavigation.JavaScriptAlert);
             jsAlertPage.ClickJSAlertBtn();
             BrowserUtils.AcceptAlert();
-            Assert.IsTrue(jsAlertPage.IsSuccessMessageDisplayed(), "Success message is not displayed");
+            Assert.That(jsAlertPage.IsSuccessMessageDisplayed(), Is.True, "Success message is not displayed");
         }
     }
 }

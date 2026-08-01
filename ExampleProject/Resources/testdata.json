@@ -1,4 +1,4 @@
-﻿{
+{
   "dataTable": {
     "expectedSum": 251.00
   },
@@ -13,5 +13,9 @@
   "fileUpload": {
     "folderPath": "..\\\\Resources\\\\",
     "fileName": "UploadFileExample.txt"
+  },
+  "login": {
+    "username": "tomsmith",
+    "password": "SuperSecretPassword!"
   }
 }
