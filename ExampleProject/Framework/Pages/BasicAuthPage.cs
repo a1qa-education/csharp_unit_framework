@@ -1,4 +1,4 @@
-﻿using Aquality.Selenium.Forms;
+using Aquality.Selenium.Forms;
 using OpenQA.Selenium;
 
 namespace ExampleProject.Framework.Pages
@@ -6,7 +6,7 @@ namespace ExampleProject.Framework.Pages
     internal class BasicAuthPage : Form
     {
         private const string PageName = "Basic Auth";
-        public BasicAuthPage() : base(By.XPath(string.Format(LocatorConstants.PreciseTextLocator, PageName)), PageName)
+        public BasicAuthPage() : base(By.XPath($"//h3[text()='{PageName}']"), PageName)
         {
         }
         

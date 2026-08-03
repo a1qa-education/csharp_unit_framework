@@ -1,19 +1,21 @@
-﻿using Aquality.Selenium.Elements.Interfaces;
+using Aquality.Selenium.Elements.Interfaces;
 using Aquality.Selenium.Forms;
+using ExampleProject.Framework.Constants;
+using ExampleProject.Framework.Utils;
 using OpenQA.Selenium;
 namespace ExampleProject.Framework.Pages
 {
     internal class MainPage : Form
     {
-        private ILink navigationLink(string navigation) => ElementFactory.GetLink(
-            By.XPath(string.Format(LocatorConstants.PreciseTextLocator, navigation)), "Navigation link");
-        public MainPage() : base(By.XPath(string.Format(LocatorConstants.PreciseTextLocator, "Welcome to the-internet")), "Main page")
+        private ILink navigationLink(MainPageNavigation navigation) => ElementFactory.GetLink(
+            By.LinkText(navigation.GetDescription()), "Navigation link");
+        public MainPage() : base(By.XPath("//h1[text()='Welcome to the-internet']"), "Main page")
         {
         }
 
-        public void ClickNavigationLink(string navigationName)
+        public void ClickNavigationLink(MainPageNavigation navigation)
         {
-            navigationLink(navigationName).Click();
+            navigationLink(navigation).Click();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Aquality.Selenium.Elements.Interfaces;
+using Aquality.Selenium.Elements.Interfaces;
 using Aquality.Selenium.Forms;
 using OpenQA.Selenium;
 
@@ -9,7 +9,7 @@ namespace ExampleProject.Framework.Pages
         private const string PageName = "File Download";
         //implement locator
         private IButton downloadLink(string filename) => ElementFactory.GetButton(By.XPath($"locator with {filename}"), "Element name");
-        public FileDownloadPage() : base(By.XPath(string.Format(LocatorConstants.PreciseTextLocator, PageName)), PageName)
+        public FileDownloadPage() : base(By.XPath($"//h3[text()='{PageName}']"), PageName)
         {
         }
 

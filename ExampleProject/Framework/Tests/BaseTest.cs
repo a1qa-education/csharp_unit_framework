@@ -1,11 +1,11 @@
-﻿using Aquality.Selenium.Browsers;
+using Aquality.Selenium.Browsers;
 using Aquality.Selenium.Core.Utilities;
 using ExampleProject.Framework.Pages;
 using NUnit.Framework;
 
 namespace ExampleProject.Framework.Tests
 {
-    internal class BaseTest
+    internal abstract class BaseTest
     {
         protected MainPage mainPage = new();
         protected Browser browser;
