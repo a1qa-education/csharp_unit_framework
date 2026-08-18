@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace ExampleProject.Framework.Tests
 {
-    internal abstract class BaseTest
+    public abstract class BaseTest
     {
         protected MainPage mainPage = new();
         protected Browser browser;

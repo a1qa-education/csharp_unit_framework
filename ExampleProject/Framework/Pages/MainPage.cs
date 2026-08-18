@@ -1,21 +1,51 @@
-using Aquality.Selenium.Elements.Interfaces;
+﻿using Aquality.Selenium.Elements.Interfaces;
 using Aquality.Selenium.Forms;
-using ExampleProject.Framework.Constants;
-using ExampleProject.Framework.Utils;
 using OpenQA.Selenium;
+
 namespace ExampleProject.Framework.Pages
 {
-    internal class MainPage : Form
+    public class MainPage : Form
     {
-        private ILink navigationLink(MainPageNavigation navigation) => ElementFactory.GetLink(
-            By.LinkText(navigation.GetDescription()), "Navigation link");
-        public MainPage() : base(By.XPath("//h1[text()='Welcome to the-internet']"), "Main page")
+        private ILabel timerLabel => ElementFactory.GetLabel(By.CssSelector("div.timer--gray"), "Timer");
+
+        private SignUpForm? signUpForm;
+        private InterestsForm? interestsForm;
+        private PersonalDetailsForm? personalDetailsForm;
+        private HelpForm? helpForm;
+        private CookieForm? cookieForm;
+
+        public MainPage()
+            : base(By.ClassName("bagaar-link__image"), "Main page")
+        { }
+
+        public string GetTimerValue()
         {
+            return timerLabel.Text;
         }
 
-        public void ClickNavigationLink(MainPageNavigation navigation)
+        public SignUpForm GetSignUpForm()
         {
-            navigationLink(navigation).Click();
+            return signUpForm ??= new SignUpForm();
+        }
+
+        public InterestsForm GetInterestsForm()
+        {
+            return interestsForm ??= new InterestsForm();
+        }
+
+        public PersonalDetailsForm GetPersonalDetailsForm()
+        {
+            return personalDetailsForm ??= new PersonalDetailsForm();
+        }
+
+        public HelpForm GetHelpForm()
+        {
+            return helpForm ??= new HelpForm();
+        }
+
+        public CookieForm GetCookieForm()
+        {
+            return cookieForm ??= new CookieForm();
         }
     }
 }
