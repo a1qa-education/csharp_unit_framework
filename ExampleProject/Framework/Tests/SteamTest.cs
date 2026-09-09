@@ -221,5 +221,19 @@ namespace ExampleProject.Framework.Tests
 
             driver.Quit();
         }
+/*
+        // 
+        [Test]
+        public void STEAM_TC_003()
+        {
+            var driver = new ChromeDriver();
+
+            driver.Navigate().GoToUrl("https://store.steampowered.com/");
+
+            Assert.NotNull(driver.Title);
+            Assert.NotNull(driver.FindElement(By.TagName("body")));
+            Assert.NotNull(driver.FindElement(By.TagName("body")));
+        }
+*/
     }
 }
