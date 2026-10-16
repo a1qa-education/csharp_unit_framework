@@ -3,16 +3,14 @@ using NUnit.Framework;
 
 namespace ExampleProject.Framework.Tests
 {
-    public class CookiesFormTest : BaseTest
+    public class CookiesPolicyTests : BaseTest
     {
         [Test]
-        public void CheckCookiesFormCanBeHidden()
+        public void DismissCookiesBanner()
         {
-            var welcomePage = new WelcomePage();
-
-            welcomePage.ClickHereToGoLink();
-
             var cookieForm = new MainPage().GetCookieForm();
+
+            Assert.That(cookieForm.State.WaitForDisplayed(), Is.True, "Cookies form should be displayed");
 
             cookieForm.ClickAcceptCookiesBtn();
 
