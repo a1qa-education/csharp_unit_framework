@@ -11,6 +11,7 @@ namespace ExampleProject.Framework.Pages
         private SignUpForm? signUpForm;
         private InterestsForm? interestsForm;
         private CookieForm? cookieForm;
+        private TermsConditionsForm? termsConditionsForm;
 
         public MainPage()
             : base(By.CssSelector("div.timer--white"), "Main page")
@@ -34,6 +35,11 @@ namespace ExampleProject.Framework.Pages
         public CookieForm GetCookieForm()
         {
             return cookieForm ??= new CookieForm();
+        }
+
+        public TermsConditionsForm GetTermsConditionsForm()
+        {
+            return termsConditionsForm ??= new TermsConditionsForm();
         }
     }
 }

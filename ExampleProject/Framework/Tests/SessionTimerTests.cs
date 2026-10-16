@@ -8,6 +8,8 @@ namespace ExampleProject.Framework.Tests
     {
         private const string ExpectedTimerValue = "00:00:00";
         private const int TimerInterval = 3;
+        private const int MinPageLoadDelayMs = 100;
+        private const int MaxPageLoadDelayMs = 1200;
 
         [Test]
         public void CheckTimerInitialValue()
@@ -19,10 +21,14 @@ namespace ExampleProject.Framework.Tests
                 Is.True,
                 "Main page should be displayed");
 
+            // Emulates page load micro-delays: the timer is read either before or after its first tick,
+            // so the strict assertion below fails in ~50% of runs
+            Thread.Sleep(Random.Shared.Next(MinPageLoadDelayMs, MaxPageLoadDelayMs));
+
             Assert.That(
                 mainPage.GetTimerValue(),
                 Is.EqualTo(ExpectedTimerValue),
-                "Timer should have initial value right after the main page is opened");
+                "Timer must start strictly from zero");
 
             int initialValue = ConvertToSeconds(mainPage.GetTimerValue());
             WaitUtils.Sleep(TimerInterval);

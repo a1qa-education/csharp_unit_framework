@@ -18,6 +18,7 @@ namespace ExampleProject.Framework.Pages
         private IButton domainDropdown => ElementFactory.GetButton(By.XPath("//div[contains(@class,'login-form')]//div[contains(@class,'opener')]"), "Domain dropdown");
         private IButton nextBtn => ElementFactory.GetButton(By.XPath("//div[contains(@class,'login-form')]//a[text()='Next']"), "Next");
         private ICheckBox acceptTermsConditionsCheckbox => ElementFactory.GetCheckBox(By.CssSelector("label[for='accept-terms-conditions']"), "Accept Terms Conditions");
+        private ILink termsConditionsLink => ElementFactory.GetLink(By.ClassName("login-form__terms-conditions-underline"), "Terms and Conditions");
         private ILabel pageIndicatorLabel => ElementFactory.GetLabel(By.CssSelector("div.page-indicator"), "Page Indicator");
 
         public SignUpForm()
@@ -48,6 +49,11 @@ namespace ExampleProject.Framework.Pages
         public void AcceptTermsConditions()
         {
             acceptTermsConditionsCheckbox.Click();
+        }
+
+        public void OpenTermsConditions()
+        {
+            termsConditionsLink.Click();
         }
 
         public void ClickNextBtn()
