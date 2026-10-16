@@ -4,8 +4,6 @@ namespace ExampleProject.Framework.Constants
 {
     public enum Domains
     {
-        [Description("other")]
-        OTHER,
         [Description(".org")]
         ORG,
         [Description(".co.uk")]

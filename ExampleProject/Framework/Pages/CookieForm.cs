@@ -6,7 +6,7 @@ namespace ExampleProject.Framework.Pages
 {
     public class CookieForm : Form
     {
-        private IButton acceptCookiesBtn => ElementFactory.GetButton(By.XPath("//div[@class='cookies']//button[contains(text(),'Yes')]"), "Accept Cookies");
+        private IButton acceptCookiesBtn => ElementFactory.GetButton(By.XPath("//button[text()='Not really, no']"), "Accept Cookies");
 
         public CookieForm()
             : base(By.ClassName("cookies"), "Cookie form")

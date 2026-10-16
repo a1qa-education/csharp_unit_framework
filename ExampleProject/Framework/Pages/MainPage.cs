@@ -6,16 +6,15 @@ namespace ExampleProject.Framework.Pages
 {
     public class MainPage : Form
     {
-        private ILabel timerLabel => ElementFactory.GetLabel(By.CssSelector("div.timer--gray"), "Timer");
+        private ILabel timerLabel => ElementFactory.GetLabel(By.CssSelector("div.timer--white"), "Timer");
 
         private SignUpForm? signUpForm;
         private InterestsForm? interestsForm;
-        private PersonalDetailsForm? personalDetailsForm;
-        private HelpForm? helpForm;
         private CookieForm? cookieForm;
+        private TermsConditionsForm? termsConditionsForm;
 
         public MainPage()
-            : base(By.ClassName("bagaar-link__image"), "Main page")
+            : base(By.CssSelector("div.timer--white"), "Main page")
         { }
 
         public string GetTimerValue()
@@ -33,19 +32,14 @@ namespace ExampleProject.Framework.Pages
             return interestsForm ??= new InterestsForm();
         }
 
-        public PersonalDetailsForm GetPersonalDetailsForm()
-        {
-            return personalDetailsForm ??= new PersonalDetailsForm();
-        }
-
-        public HelpForm GetHelpForm()
-        {
-            return helpForm ??= new HelpForm();
-        }
-
         public CookieForm GetCookieForm()
         {
             return cookieForm ??= new CookieForm();
+        }
+
+        public TermsConditionsForm GetTermsConditionsForm()
+        {
+            return termsConditionsForm ??= new TermsConditionsForm();
         }
     }
 }
