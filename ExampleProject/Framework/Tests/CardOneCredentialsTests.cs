@@ -15,18 +15,12 @@ namespace ExampleProject.Framework.Tests
         private readonly InterestsForm interestsForm = new MainPage().GetInterestsForm();
         private readonly EmailData emailTestData = TestDataReader.GetEmailData();
 
-        [SetUp]
-        public void IsGamePageOpened()
-        {
-            Assert.That(signUpForm.State.WaitForDisplayed(), Is.True, "Sign Up card should be displayed");
-            Assert.That(signUpForm.GetPageIndicatorText(), Is.EqualTo(FirstCardPageIndicatorText), "Page Indicator should be the same as expected");
-        }
-
         [Test]
         public void CheckPasswordPolicyCompliance()
         {
             Domains domain = Enum.Parse<Domains>(emailTestData.EmailExtension, ignoreCase: true);
 
+            AssertCardOneIsOpened();
             FillCredentials(domain, emailTestData.FirstPassword);
             signUpForm.ClickNextBtn();
 
@@ -39,6 +33,7 @@ namespace ExampleProject.Framework.Tests
         {
             IList<Domains> emailExtensions = Enum.GetValues<Domains>();
 
+            AssertCardOneIsOpened();
             foreach (Domains emailExtension in emailExtensions)
             {
                 FillCredentials(emailExtension, emailTestData.SecondPassword);
@@ -47,6 +42,12 @@ namespace ExampleProject.Framework.Tests
                 Assert.That(interestsForm.GetPageIndicatorText(), Is.EqualTo(SecondCardPageIndicatorText), "Page Indicator should be the same as expected");
                 browser.Refresh();
             }
+        }
+
+        private void AssertCardOneIsOpened()
+        {
+            Assert.That(signUpForm.State.WaitForDisplayed(), Is.True, "Sign Up card should be displayed");
+            Assert.That(signUpForm.GetPageIndicatorText(), Is.EqualTo(FirstCardPageIndicatorText), "Page Indicator should be the same as expected");
         }
 
         private void FillCredentials(Domains domain, string password)
