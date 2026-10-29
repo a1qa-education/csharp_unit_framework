@@ -7,7 +7,7 @@ namespace ExampleProject.Framework.Tests
     public class SessionTimerTests : BaseTest
     {
         private const string ExpectedTimerValue = "00:00:00";
-        private const int TimerDisplayTimeoutMs = 700;
+        private const int TimerDisplayTimeoutMs = 550;
 
         [Test]
         public void CheckTimerInitialValue()
