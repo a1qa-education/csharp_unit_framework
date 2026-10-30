@@ -8,15 +8,18 @@ namespace ExampleProject.Framework.Pages
 {
     public class SignUpForm : Form
     {
-        private static readonly By PasswordFieldLoc = By.XPath("//div[contains(@class,'login-form')]/input");
+        private static readonly By PasswordFieldLoc = By.CssSelector("input[placeholder='Choose Password']");
 
         private const string DomainItemLocTemplate = "//div[contains(@class,'dropdown__list-item') and normalize-space(text())='{0}']";
 
         private ITextBox passwordField => ElementFactory.GetTextBox(PasswordFieldLoc, "Password field");
-        private ITextBox emailField => ElementFactory.GetTextBox(By.XPath("//input[contains(@placeholder,'email')]"), "Email field");
-        private ITextBox domainField => ElementFactory.GetTextBox(By.XPath("//input[contains(@placeholder,'Domain')]"), "Domain field");
+        private ITextBox emailField => ElementFactory.GetTextBox(By.CssSelector("input[placeholder='Your email']"), "Email field");
+        private ITextBox domainField => ElementFactory.GetTextBox(By.CssSelector("input[placeholder='Domain']"), "Domain field");
         private IButton domainDropdown => ElementFactory.GetButton(By.XPath("//div[contains(@class,'login-form')]//div[contains(@class,'opener')]"), "Domain dropdown");
         private IButton nextBtn => ElementFactory.GetButton(By.XPath("//div[contains(@class,'login-form')]//a[text()='Next']"), "Next");
+        private ICheckBox acceptTermsConditionsCheckbox => ElementFactory.GetCheckBox(By.CssSelector("label[for='accept-terms-conditions']"), "Accept Terms Conditions");
+        private ILink termsConditionsLink => ElementFactory.GetLink(By.ClassName("login-form__terms-conditions-underline"), "Terms and Conditions");
+        private ILabel pageIndicatorLabel => ElementFactory.GetLabel(By.CssSelector("div.page-indicator"), "Page Indicator");
 
         public SignUpForm()
             : base(PasswordFieldLoc, "Sign Up form")
@@ -43,9 +46,24 @@ namespace ExampleProject.Framework.Pages
             GetDomainDropdownItem(domain).Click();
         }
 
+        public void AcceptTermsConditions()
+        {
+            acceptTermsConditionsCheckbox.Click();
+        }
+
+        public void OpenTermsConditions()
+        {
+            termsConditionsLink.Click();
+        }
+
         public void ClickNextBtn()
         {
             nextBtn.Click();
+        }
+
+        public string GetPageIndicatorText()
+        {
+            return pageIndicatorLabel.Text;
         }
 
         private IButton GetDomainDropdownItem(Domains domain)
