@@ -21,5 +21,4 @@ dotnet test --filter "FullyQualifiedName~CookiesPolicyTests"
 
 ## Notes
 
-- The starter suite has no reporter. Add Allure yourself as part of the Unit 4 task.
 - Browser settings (timeouts, logging) are in `ExampleProject/Resources/settings.json`; the application URL is in `ExampleProject/Resources/config.json`.
