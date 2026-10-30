@@ -2,9 +2,9 @@
 {
     public static class WaitUtils
     {
-        public static void Sleep(int seconds)
+        public static void Sleep(int milliseconds)
         {
-            Thread.Sleep(TimeSpan.FromSeconds(seconds));
+            Thread.Sleep(milliseconds);
         }
     }
 }

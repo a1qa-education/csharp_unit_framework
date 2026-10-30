@@ -119,7 +119,7 @@
   },
   "timeouts": {
     "timeoutImplicit": 0,
-    "timeoutCondition": 30,
+    "timeoutCondition": 10,
     "timeoutScript": 10,
     "timeoutPageLoad": 60,
     "timeoutPollingInterval": 300,
